@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Military Tactical Design System - All colors MUST be HSL */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core Military Theme */
+    --background: 120 15% 8%;
+    --foreground: 120 20% 85%;
+
+    /* Command Interface */
+    --card: 120 20% 10%;
+    --card-foreground: 120 25% 90%;
+
+    --popover: 120 25% 12%;
+    --popover-foreground: 120 25% 88%;
+
+    /* Tactical Colors */
+    --primary: 120 60% 45%;
+    --primary-foreground: 120 15% 8%;
+    --primary-glow: 120 80% 55%;
+
+    --secondary: 120 30% 15%;
+    --secondary-foreground: 120 30% 85%;
+
+    --muted: 120 25% 12%;
+    --muted-foreground: 120 15% 65%;
+
+    --accent: 60 100% 50%;
+    --accent-foreground: 60 15% 8%;
+
+    /* Alert States */
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 15% 95%;
+    
+    --warning: 45 95% 55%;
+    --warning-foreground: 45 15% 8%;
+
+    --success: 120 60% 45%;
+    --success-foreground: 120 15% 8%;
+
+    /* Interface Elements */
+    --border: 120 30% 18%;
+    --input: 120 25% 12%;
+    --ring: 120 60% 45%;
+
+    /* Military Specific */
+    --tactical-grid: 120 40% 20%;
+    --command-highlight: 120 80% 55%;
+    --offline-mode: 15 90% 50%;
+    --encrypted: 240 60% 55%;
+    --blockchain: 280 70% 60%;
+
+    /* Gradients */
+    --gradient-command: linear-gradient(135deg, hsl(120 25% 12%), hsl(120 30% 8%));
+    --gradient-tactical: linear-gradient(180deg, hsl(120 60% 45%), hsl(120 80% 55%));
+    --gradient-alert: linear-gradient(135deg, hsl(0 75% 50%), hsl(15 85% 55%));
+
+    /* Shadows */
+    --shadow-command: 0 8px 32px hsl(120 60% 45% / 0.15);
+    --shadow-tactical: 0 0 20px hsl(120 80% 55% / 0.3);
+    --shadow-alert: 0 4px 20px hsl(0 75% 50% / 0.4);
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Military UI Patterns */
+  .tactical-grid {
+    background-image: 
+      linear-gradient(hsl(var(--tactical-grid) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--tactical-grid) / 0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .command-glow {
+    box-shadow: var(--shadow-tactical);
+  }
+
+  .status-pulse {
+    animation: status-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes status-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .7;
+    }
+  }
+
+  .encrypt-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--encrypted) / 0.1) 0%,
+      hsl(var(--encrypted) / 0.3) 50%,
+      hsl(var(--encrypted) / 0.1) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+     background-position: 200% 0;
+    }
+  }
+}
